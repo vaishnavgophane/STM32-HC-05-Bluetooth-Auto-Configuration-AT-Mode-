@@ -1,3 +1,15 @@
+
+## 🧑‍💻 Author
+
+**Vaishnav Gophane**  
+Embedded Firmware & IoT Developer
+<br>
+Pune, India.
+
+📫 **Connect:** [Gmail]( mr.vaishnavgophane@gmail.com ) • [GitHub](https://github.com/vaishnavgophane) • [LinkedIn](https://www.linkedin.com/in/vaishnav-gophane-417686284/)
+
+---
+
 # STM32 HC-05 Bluetooth Auto Configuration (AT Mode)
 
 ## 📌 Project Overview
@@ -19,19 +31,17 @@ This project automates the entire process so that **each power-up configures the
 
 ---
 
-## 🧠 System Architecture
-+------------------+ UART1 (38400 baud) +-------------+
-| STM32 Nucleo | <----------------------------> | HC-05 Module|
-| (USART1) | | (AT Mode) |
-+------------------+ +-------------+
-|
-| UART2 (Debug Output)
-v
-+------------------+
-| PC / PuTTY |
-+------------------+
+## 🧩 System Architecture
 
----
+```mermaid
+flowchart LR
+    STM32[STM32 Nucleo<br/>USART1 @ 38400]
+    HC05[HC-05 Bluetooth<br/>AT Mode]
+    PC[PC / PuTTY<br/>USART2 @ 38400]
+
+    STM32 <-->|UART1| HC05
+    STM32 -->|Debug Logs| PC
+```
 
 ## ⚙️ Key Features
 - ✅ UART interrupt-based RX (non-blocking)
